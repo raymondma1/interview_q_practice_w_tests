@@ -20,6 +20,23 @@ repo link: https://github.com/yilenpan/algorithmofanalgorithm
 /////////////////////////////////////////////////////////////
 
 var findPivotedWord = function (array, start, end) {
+  start = start || 0
+  end = end || array.length -1;
+  var middle = Math.round((start + end)/2);
+  //if left is less than right the sub array is sorted
+  if(start+1 === end){
+    if(array[start].toLowerCase() > array[end].toLowerCase()){
+      return start
+    } else  {
+      if(array[start] > array)
+      return null;
+    }
+  }
+  if(array[start].toLowerCase() < array[middle].toLowerCase()){
+    return findPivotedWord(array,middle,end);
+  } else {
+    return findPivotedWord(array, start, middle);
+  }
   
 };
 
